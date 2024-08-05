@@ -10,9 +10,10 @@ export default function Search(props) {
     console.log(response.data);
     setweatherData({
       ready: true,
-      date: new Date (response.data.time *1000),
+      date: new Date(response.data.time * 1000),
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
+      icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
       humidity: response.data.temperature.humidity,
       city: response.data.city,
       description: response.data.condition.description,
@@ -36,7 +37,7 @@ export default function Search(props) {
           <div className="col-6">
             <div className="justify-content-between">
               <h1>{Math.round(weatherData.temperature)}°</h1>
-              {/* <img src={weatherData.icon} alt="weather-icon" /> */}
+              <img src={weatherData.icon} alt="weather-icon" />
             </div>
             <ul>
               <li>Wind : {Math.round(weatherData.wind)} km/h</li>
