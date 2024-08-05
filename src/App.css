@@ -1,0 +1,28 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: #000;
+}
+
+
+.Weather {
+  background: #7c7c7c;
+  max-width: 800px;
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+
+
+p {
+  font-size: 13px;
+}
+
+h1 {
+  font-size: 72px;
+}
