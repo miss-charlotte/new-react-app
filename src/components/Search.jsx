@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../App.css";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Search(props) {
   const [weatherData, setweatherData] = useState({ ready: false });
@@ -13,12 +14,14 @@ export default function Search(props) {
       date: new Date(response.data.time * 1000),
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
-      icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      icon : response.data.condition.icon,
+      // icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
       humidity: response.data.temperature.humidity,
       city: response.data.city,
       description: response.data.condition.description,
     });
   }
+  
 
   if (weatherData.ready) {
     return (
@@ -31,13 +34,20 @@ export default function Search(props) {
         <div className="row">
           <div className="col-6">
             <h2>{weatherData.city}</h2>
-            <h6><FormattedDate date={weatherData.date} /></h6>
+            <h6>
+              <FormattedDate date={weatherData.date} />
+            </h6>
             <h6 className="text-capitalize">{weatherData.description}</h6>
           </div>
           <div className="col-6">
             <div className="justify-content-between">
               <h1>{Math.round(weatherData.temperature)}°</h1>
-              <img src={weatherData.icon} alt="weather-icon" />
+              <WeatherTemperature celsius={props.data.temperature.current} />
+              <div>
+                <WeatherIcon code={weatherData.icon} />
+              </div>
+
+              {/* <img src={weatherData.icon} alt="weather-icon" /> */}
             </div>
             <ul>
               <li>Wind : {Math.round(weatherData.wind)} km/h</li>
@@ -59,7 +69,7 @@ export default function Search(props) {
     );
   } else {
     const apiKey = "4a9a03c36co3te6eb309bfc8b0f487fb";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";
