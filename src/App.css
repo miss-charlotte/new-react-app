@@ -1,28 +1,76 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem; */
   text-align: center;
   color: #000;
+  font-family: Inter, "sans-serif";
 }
 
-
 .Weather {
-  background: #7c7c7c;
-  max-width: 800px;
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  max-width: 700px;
   padding: 20px;
+  margin:20px auto;
 }
 
 ul {
   list-style: none;
 }
 
-
-
-p {
-  font-size: 13px;
+.Footer {
+  margin-top: 20px;
+  font-weight: 700px;
 }
 
-h1 {
-  font-size: 72px;
+.InputText {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-right: 20px;
+}
+
+.SearchButton {
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+
+h2 {
+  font-size: 55px;
+}
+
+h6 {
+  font-weight: 400;
+}
+
+.Temperature {
+  font-size: 60px;
+}
+
+.TemperatureDegree {
+  font-size: 24px;
+  top: -30px;
+  position: relative;
+}
+
+.Unit {
+  font-size: 16px;
+  top: -30px;
+  position: relative;
+}
+
+.Icon canvas{
+  position: relative;
+  right: 90px;
+  top: -70px;
+  width: 45px;
+}
+
+.WeatherInfo {
+  margin-top: -65px;
+}
+
+.Forecast {
+  margin-top: 40px;
 }

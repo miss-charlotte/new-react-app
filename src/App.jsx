@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Weather />
-      <p>
+      <p className="Footer">
         This website is coded by{" "}
         <a href="https://github.com/miss-charlotte">Charlotte Akongo</a> and
         open-sourced on{" "}
