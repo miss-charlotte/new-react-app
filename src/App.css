@@ -74,3 +74,8 @@ h6 {
 .Forecast {
   margin-top: 40px;
 }
+
+.Forecast-temperature-min {
+  opacity: 0.6;
+  margin-left: 10px;
+}

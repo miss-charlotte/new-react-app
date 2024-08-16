@@ -4,6 +4,7 @@ import "../App.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
+import Forecast from "./Forecast";
 
 export default function Search(props) {
   const [weatherData, setweatherData] = useState({ ready: false });
@@ -12,7 +13,9 @@ export default function Search(props) {
   function handleResponse(response) {
     console.log(response.data);
     setweatherData({
+      
       ready: true,
+      coord: response.data.coordinates,
       date: new Date(response.data.time * 1000),
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
@@ -70,7 +73,7 @@ export default function Search(props) {
                 <WeatherTemperature celsius={weatherData.temperature} />
               </div>
               <div className="Icon">
-                <WeatherIcon code={weatherData.icon} />
+                <WeatherIcon code={weatherData.icon} size={64}/>
               </div>
             </div>
               <ul className="WeatherInfo">
@@ -79,16 +82,7 @@ export default function Search(props) {
               </ul>
           </div>
         </div>
-
-        <div className="Forecast">
-          <ul>
-            <li className="d-inline mx-4">Mon</li>
-            <li className="d-inline mx-4">Tue</li>
-            <li className="d-inline mx-4">Wed</li>
-            <li className="d-inline mx-4">Thur</li>
-            <li className="d-inline mx-4">Fri</li>
-          </ul>
-        </div>
+        <Forecast coordinates={weatherData.coord}/>
       </>
     );
   } else {

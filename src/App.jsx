@@ -12,7 +12,7 @@ function App() {
         <a href="https://github.com/miss-charlotte">Charlotte Akongo</a> and
         open-sourced on{" "}
         <a href="https://github.com/miss-charlotte/new-react-app">Github</a> and
-        hosted on <a href="#">Netlify</a>
+        hosted on <a href="https://clima-ver2.netlify.app/">Netlify</a>
       </p>
     </>
   );
