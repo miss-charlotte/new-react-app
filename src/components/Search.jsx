@@ -13,16 +13,15 @@ export default function Search(props) {
   function handleResponse(response) {
     console.log(response.data);
     setweatherData({
-      
       ready: true,
       coord: response.data.coordinates,
       date: new Date(response.data.time * 1000),
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
-      icon : response.data.condition.icon,
+      icon: response.data.condition.icon,
       // icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
       humidity: response.data.temperature.humidity,
-    city: response.data.city,
+      city: response.data.city,
       description: response.data.condition.description,
     });
   }
@@ -41,7 +40,6 @@ export default function Search(props) {
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
-  
 
   if (weatherData.ready) {
     return (
@@ -59,30 +57,30 @@ export default function Search(props) {
         </form>
 
         <div className="row mt-5">
-          <div className="col-6">
-            <h2>{weatherData.city}</h2>
+          <div className="CityDetails col-6">
+            <h2 className="City">{weatherData.city}</h2>
             <h6>
               <FormattedDate date={weatherData.date} />
             </h6>
             <h6 className="text-capitalize">{weatherData.description}</h6>
           </div>
           <div className="col-6">
-            <div className="justify-content-between">
+            <div className="CityTemperature justify-content-between">
               <div className="Temperature">
                 {" "}
                 <WeatherTemperature celsius={weatherData.temperature} />
               </div>
               <div className="Icon">
-                <WeatherIcon code={weatherData.icon} size={64}/>
+                <WeatherIcon code={weatherData.icon} size={64} />
               </div>
             </div>
-              <ul className="WeatherInfo">
+            <ul className="WeatherInfo">
               <li>Wind : {Math.round(weatherData.wind)} km/h</li>
               <li>Humidity: {weatherData.humidity}%</li>
-              </ul>
+            </ul>
           </div>
         </div>
-        <Forecast coordinates={weatherData.coord}/>
+        <Forecast coordinates={weatherData.coord} />
       </>
     );
   } else {

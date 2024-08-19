@@ -1,26 +1,28 @@
+/* Base Styles */
 #root {
-  /* max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem; */
   text-align: center;
   color: #000;
   font-family: Inter, "sans-serif";
+  padding: 20px; /* Added padding to root element */
 }
 
 .Weather {
   background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-  max-width: 600px;
+  max-width: 90%; /* Use a percentage for better responsiveness */
   padding: 20px;
-  margin:20px auto;
+  margin: 20px auto;
+  border-radius: 10px;
 }
 
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .Footer {
   margin-top: 20px;
-  font-weight: 700px;
+  font-weight: 400;
 }
 
 .InputText {
@@ -28,6 +30,7 @@ ul {
   border-radius: 5px;
   border: none;
   margin-right: 20px;
+  width: calc(100% - 120px); /* Adjust input width for smaller screens */
 }
 
 .SearchButton {
@@ -36,39 +39,52 @@ ul {
   box-shadow: 5px 5px 10px rgb(0, 0, 0);
 }
 
-h2 {
-  font-size: 55px;
+.CityDetails {
+  text-align: left;
+  margin-bottom: 20px; /* Added margin for better spacing */
+}
+
+.City {
+  font-size: 2rem; /* Use relative units */
+}
+
+.CityWeather {
+  text-align: right;
 }
 
 h6 {
   font-weight: 400;
 }
 
-.Temperature {
-  font-size: 60px;
+
+.Temperature h1 {
+  position: relative;
+  font-size: 4rem; /* Use relative units */
+  left: 40px;
 }
 
 .TemperatureDegree {
-  font-size: 24px;
-  top: -30px;
+  font-size: 1.75rem; /* Adjust for scaling */
+  top: -40px;
   position: relative;
 }
 
 .Unit {
-  font-size: 16px;
-  top: -30px;
+  font-size: 1rem;
+  top: -45px;
   position: relative;
 }
 
-.Icon canvas{
+.Icon {
   position: relative;
-  right: 90px;
   top: -70px;
-  width: 45px;
+  left: 70px;
+  width: 64px;
 }
 
 .WeatherInfo {
   margin-top: -65px;
+  float: right;
 }
 
 .Forecast {
@@ -78,4 +94,74 @@ h6 {
 .Forecast-temperature-min {
   opacity: 0.6;
   margin-left: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .Weather {
+    max-width: 100%; /* Full width on smaller screens */
+    padding: 15px;
+  }
+
+  .InputText {
+    margin-right: 10px;
+    width: calc(100% - 100px); /* Adjust input width */
+  }
+
+  .City {
+    font-size: 1.5rem; /* Smaller city name */
+  }
+
+  .Temperature h1 {
+    font-size: 3.5rem; /* Adjust temperature size */
+  }
+
+  .Icon {
+    top: -70px;
+    left: 40px; /* Adjust icon position */
+    width: 50px; /* Smaller icon */
+  }
+
+  .WeatherInfo {
+    margin-top: -50px;
+  }
+
+  .Forecast {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .InputText {
+    margin-right: 5px;
+    width: calc(100% - 80px); /* More adjustment for smaller screens */
+  }
+
+  .City {
+    font-size: 1.2rem; /* Further reduce city name size */
+  }
+
+  .Temperature h1 {
+    font-size: 2.5rem; /* Further adjust temperature size */
+  }
+
+  .TemperatureDegree,
+  .Unit {
+    font-size: 1rem;
+    top: -25px;
+  }
+
+  .Icon {
+    left: 20px; /* Further adjust icon position */
+    top: -60px;
+    width: 40px; /* Even smaller icon */
+  }
+
+  .WeatherInfo {
+    margin-top: -40px;
+  }
+
+  .Forecast-temperature-min {
+    font-size: 0.8rem;
+  }
 }
