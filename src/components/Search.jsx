@@ -71,7 +71,7 @@ export default function Search(props) {
                 <WeatherTemperature celsius={weatherData.temperature} />
               </div>
               <div className="Icon">
-                <WeatherIcon code={weatherData.icon} size={64} />
+                <WeatherIcon code={weatherData.icon} size={52} />
               </div>
             </div>
             <ul className="WeatherInfo">
