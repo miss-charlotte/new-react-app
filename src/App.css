@@ -8,10 +8,9 @@
 
 .Weather {
   background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-  max-width: 90%; /* Use a percentage for better responsiveness */
+  max-width: 50%; /* Use a percentage for better responsiveness */
   padding: 20px;
   margin: 20px auto;
-  border-radius: 10px;
 }
 
 ul {
@@ -56,10 +55,9 @@ h6 {
   font-weight: 400;
 }
 
-
 .Temperature h1 {
   position: relative;
-  font-size: 4rem; /* Use relative units */
+  font-size: 70px; /* Use relative units */
   left: 40px;
 }
 
@@ -77,7 +75,7 @@ h6 {
 
 .Icon {
   position: relative;
-  top: -70px;
+  top: -75px;
   left: 70px;
   width: 64px;
 }
@@ -118,7 +116,7 @@ h6 {
 
   .Icon {
     top: -70px;
-    left: 40px; /* Adjust icon position */
+    left: 70px; /* Adjust icon position */
     width: 50px; /* Smaller icon */
   }
 
@@ -152,7 +150,7 @@ h6 {
   }
 
   .Icon {
-    left: 20px; /* Further adjust icon position */
+    left: 30px; /* Further adjust icon position */
     top: -60px;
     width: 40px; /* Even smaller icon */
   }
